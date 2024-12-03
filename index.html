@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tile Triumph</title>
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght,CASL,MONO@300..1000,0..1,1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* font-family: "Recursive", "Helvetica Neue", Arial, sans-serif; */
+            font-family: "Recursive", monospace;
+            text-align: center;
+            background-color: #f8f8f8;
+            font-weight: 400;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .info {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .score {
+            font-size: 24px;
+            height: 100%;
+        }
+        .current-player {
+            font-size: 24px;
+            font-weight: 800;
+            font-variation-settings: "CASL" 1;
+            color: #79740e;
+        }
+        .board {
+            display: grid;
+            margin: 20px auto;
+            max-width: fit-content;
+            gap: 10px;
+        }
+        
+        .tile {
+            /* margin: 5px; */
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            background-color: #ffffff;
+            border: 2px solid #cccccc;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .tile.selected {
+            background-color: #d79921;
+            font-weight: 800;
+            font-variation-settings: "CASL" 1;
+        }
+
+        .tile.taken {
+            opacity: 40%;
+        }
+
+        button, input {
+            font-family: "Recursive", monospace;
+        }
+
+        /* .skip-button, .random-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .skip-button:hover, .random-button:hover {
+            background-color: #0056b3;
+        } */
+
+        /* basic styles for the alert overlay */
+        .custom-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* dimmed background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* ensures it appears on top of other content */
+        }
+
+        /* the alert box itself */
+        .custom-alert-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            max-width: 300px;
+        }
+
+        button {
+            margin-top: 15px;
+            margin-inline: 10px;
+            padding: 10px 15px;
+            background: #458588;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .switch {
+            background: #ffffff;
+            border: 2px solid #cccccc;
+            color: black;
+        }
+
+        button:hover {
+            background: #076678;
+        }
+
+        .switch:hover{
+            background: #eeeeee;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Tile Triumph</h1>
+    <div class="info">
+        <div class="score" id="o-score">O Score: 0</div>
+        <div class="current-player" id="current-player">Current Player: O</div>
+        <div class="score" id="x-score">X Score: 0</div>
+    </div>
+    <div>
+    </div>
+    <div class="board" id="board"></div>
+    <button id="random-button">Random Move</button>
+    <button id="skip-button">Skip Turn</button>
+    <script src="game.js"></script>
+</body>
+</html>
